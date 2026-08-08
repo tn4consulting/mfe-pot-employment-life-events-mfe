@@ -32,10 +32,10 @@ if ! kind get clusters 2>/dev/null | grep -qx "$CLUSTER_NAME"; then
     --image kindest/node:v1.27.3
 fi
 
-if ! kubectl get ns ingress-nginx >/dev/null 2>&1; then
+if ! kubectl --context "kind-$CLUSTER_NAME" get ns ingress-nginx >/dev/null 2>&1; then
   echo "==> Installing ingress-nginx..."
-  kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
-  kubectl rollout status deployment/ingress-nginx-controller \
+  kubectl --context "kind-$CLUSTER_NAME" apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+  kubectl --context "kind-$CLUSTER_NAME" rollout status deployment/ingress-nginx-controller \
     --namespace ingress-nginx \
     --timeout=120s
 fi
@@ -55,7 +55,7 @@ echo "==> Updating Helm chart dependencies..."
 helm dependency update charts/employment-life-events-mfe
 
 echo "==> Deploying employment-life-events-mfe..."
-helm upgrade --install employment-life-events-mfe charts/employment-life-events-mfe \
+helm --kube-context "kind-$CLUSTER_NAME" upgrade --install employment-life-events-mfe charts/employment-life-events-mfe \
   -f charts/employment-life-events-mfe/values.yaml \
   -f charts/employment-life-events-mfe/values-kind.yaml \
   --wait --timeout 120s
@@ -67,8 +67,8 @@ helm upgrade --install employment-life-events-mfe charts/employment-life-events-
 # content indefinitely (confirmed the hard way: a redeploy silently kept
 # serving a pre-fix JS bundle). Force it explicitly every run.
 echo "==> Restarting deployment to pick up the freshly built image..."
-kubectl rollout restart deployment/employment-life-events-mfe
-kubectl rollout status deployment/employment-life-events-mfe --timeout=60s
+kubectl --context "kind-$CLUSTER_NAME" rollout restart deployment/employment-life-events-mfe
+kubectl --context "kind-$CLUSTER_NAME" rollout status deployment/employment-life-events-mfe --timeout=60s
 
 echo "==> Waiting for ingress..."
 status=000
@@ -79,7 +79,7 @@ for i in $(seq 1 30); do
 done
 if [ "$status" != "200" ]; then
   echo "warning: employment-life-events-mfe isn't answering with 200 yet (last status: $status). Check with:" >&2
-  echo "  kubectl get pods,ingress" >&2
+  echo "  kubectl --context kind-$CLUSTER_NAME get pods,ingress" >&2
   exit 1
 fi
 
