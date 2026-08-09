@@ -1,29 +1,31 @@
 import * as React from 'react';
 import { useLocale } from '@tn4consulting/shared-i18n';
-import type { LinksLifeEventSection } from './life-event-schema';
-import { text } from './life-event-schema';
+import type { BilingualText, ServiceLink } from './bilingual-content';
+import { text } from './bilingual-content';
 
 export interface ServiceLinksSectionProps {
-  section: LinksLifeEventSection;
+  heading: BilingualText;
+  links: ServiceLink[];
 }
 
 /**
  * Renders a life event's "links to other services" as a `scds-card` grid
  * -- replaces the scattered literal hrefs that used to live directly in
  * checklist-data.ts/JobSearchChecklistItem.tsx/EiChecklistItems.tsx with
- * one schema (ServiceLink) and one renderer, reused by every life event.
- * Same plain CSS-grid layout mfe-pot-dashboard-mfe's Overview.tsx already
- * uses for its own card grid -- there's no dedicated `scds-card-grid`
- * component in the design system.
+ * one shared shape (ServiceLink) and one renderer, reused by every life
+ * event page. Same plain CSS-grid layout mfe-pot-dashboard-mfe's
+ * Overview.tsx already uses for its own card grid -- there's no dedicated
+ * `scds-card-grid` component in the design system yet (tracked in
+ * mfe-pot/TODO.md).
  */
-export function ServiceLinksSection({ section }: ServiceLinksSectionProps) {
+export function ServiceLinksSection({ heading, links }: ServiceLinksSectionProps) {
   const locale = useLocale();
 
   return (
     <section>
-      <h2>{text(section.heading, locale)}</h2>
+      <h2>{text(heading, locale)}</h2>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(18rem, 1fr))', gap: 'var(--scds-space-4, 1rem)' }}>
-        {section.links.map((link) => (
+        {links.map((link) => (
           <scds-card
             key={link.id}
             card-title={text(link.title, locale)}

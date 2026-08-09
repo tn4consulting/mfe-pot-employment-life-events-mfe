@@ -3,8 +3,8 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { useLocale } from '@tn4consulting/shared-i18n';
-import type { BilingualText } from './kit/life-event-schema';
-import { text } from './kit/life-event-schema';
+import type { BilingualText } from './kit/bilingual-content';
+import { text } from './kit/bilingual-content';
 
 interface StepperStep {
   id: string;
@@ -46,14 +46,12 @@ const LABELS = {
 } satisfies Record<string, BilingualText>;
 
 /**
- * Disability's escape-hatch content -- a linear multi-step flow doesn't
- * fit the checklist/links/widget shapes cleanly, so this life event
- * supplies its own `kind: 'custom'` `render()` instead (see
- * `definitions/disability.ts`) rather than being forced into a checklist.
- * Proves the kit's customization goal, not just its consistency goal.
- * Uses `scds-progress-bar` (`shared-ui-scds-core`) -- a plain
- * proportional bar + step-count text, already exactly what a step
- * indicator needs here with no new design-system component required.
+ * Disability's bespoke content -- a linear multi-step flow doesn't fit
+ * the checklist/links pattern cleanly, so `pages/DisabilityPage.tsx`
+ * renders this directly instead of forcing it into a checklist. Uses
+ * `scds-progress-bar` (`shared-ui-scds-core`) -- a plain proportional bar
+ * + step-count text, already exactly what a step indicator needs here
+ * with no new design-system component required.
  */
 export function DisabilityApplicationStepper() {
   const locale = useLocale();

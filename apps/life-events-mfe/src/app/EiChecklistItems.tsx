@@ -34,10 +34,10 @@ interface LoadedReportingStatus {
  * since that's the ongoing task once applied.
  *
  * Self-contained (no props, owns its own `scds-checklist` wrapper and
- * heading) -- this is job-loss's `kind: 'custom'` section, the escape
- * hatch a life event uses when its content doesn't fit the standard
- * checklist/links/widget shapes as cleanly (here: two items sharing one
- * widget instance).
+ * heading) -- `pages/JobLossPage.tsx` renders this directly, alongside its
+ * `ChecklistSection`/`ServiceLinksSection`/`WidgetSlot` calls, because two
+ * items sharing one widget instance doesn't fit the kit's generic
+ * `ChecklistSection` shape cleanly.
  */
 export function EiChecklistItems() {
   const locale = useLocale();

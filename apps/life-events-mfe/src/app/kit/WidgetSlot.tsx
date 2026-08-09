@@ -2,8 +2,8 @@ import * as React from 'react';
 import { ComponentType, useEffect, useState } from 'react';
 import { useWidgetLoader } from '@tn4consulting/shared-federation-runtime';
 import { useLocale, useTranslations } from '@tn4consulting/shared-i18n';
-import type { BilingualText } from './life-event-schema';
-import { text } from './life-event-schema';
+import type { BilingualText } from './bilingual-content';
+import { text } from './bilingual-content';
 import { assetBaseUrl } from '../asset-base-url';
 
 export interface WidgetSlotProps {

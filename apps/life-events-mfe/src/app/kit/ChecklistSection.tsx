@@ -1,12 +1,21 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { useLocale, useTranslations } from '@tn4consulting/shared-i18n';
-import type { ChecklistLifeEventSection } from './life-event-schema';
-import { text } from './life-event-schema';
+import type { BilingualText, StaticChecklistItem } from './bilingual-content';
+import { text } from './bilingual-content';
 import { assetBaseUrl } from '../asset-base-url';
 
 export interface ChecklistSectionProps {
-  section: ChecklistLifeEventSection;
+  id: string;
+  heading: BilingualText;
+  items: StaticChecklistItem[];
+  /**
+   * An extra checklist item rendered before this section's static items,
+   * inside the same list -- lets a widget-backed item (real completion
+   * signal from another federated app, e.g. job search) sit inline with a
+   * section's otherwise self-reported items.
+   */
+  leadingItem?: ReactNode;
 }
 
 /**
@@ -19,12 +28,12 @@ export interface ChecklistSectionProps {
  * proof-of-technology guided journey.
  *
  * Self-serves locale/translations (generalized kit component, shared
- * across every life-event definition) rather than taking them as props --
- * React has no per-bundle DI-singleton-identity concept for two call sites
- * of `useTranslations` to collide over, unlike the Angular version this
+ * across every life-event page) rather than taking them as props -- React
+ * has no per-bundle DI-singleton-identity concept for two call sites of
+ * `useTranslations` to collide over, unlike the Angular version this
  * family migrated away from (see App.tsx's own comment).
  */
-export function ChecklistSection({ section }: ChecklistSectionProps) {
+export function ChecklistSection({ id, heading, items, leadingItem }: ChecklistSectionProps) {
   const locale = useLocale();
   const { t } = useTranslations(assetBaseUrl, locale);
   const [checked, setChecked] = useState<Record<string, boolean>>({});
@@ -34,11 +43,11 @@ export function ChecklistSection({ section }: ChecklistSectionProps) {
   }
 
   return (
-    <scds-checklist checklist-heading={text(section.heading, locale)}>
-      {section.leadingItem?.()}
-      {section.items.map((item) => {
+    <scds-checklist checklist-heading={text(heading, locale)}>
+      {leadingItem}
+      {items.map((item) => {
         const itemChecked = checked[item.id] ?? false;
-        const checkboxId = `${section.id}-${item.id}`;
+        const checkboxId = `${id}-${item.id}`;
         return (
           <scds-checklist-item
             key={item.id}
