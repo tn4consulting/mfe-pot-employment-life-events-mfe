@@ -17,8 +17,8 @@ export default [
           allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?[jt]s$'],
           depConstraints: [
             {
-              sourceTag: 'scope:employment-life-events',
-              onlyDependOnLibsWithTags: ['scope:employment-life-events'],
+              sourceTag: 'scope:life-events',
+              onlyDependOnLibsWithTags: ['scope:life-events'],
             },
           ],
         },

@@ -1,4 +1,4 @@
-# mfe-pot-employment-life-events-mfe
+# mfe-pot-life-events-mfe
 
 > **Disclaimer:** This is an independent proof-of-technology project, not
 > affiliated with, endorsed by, or associated with Service Canada,
@@ -35,7 +35,7 @@ This README covers running **this app standalone**. For the full family (all
 ```bash
 export NODE_AUTH_TOKEN=<your GitHub token>
 pnpm install
-pnpm exec nx serve employment-life-events-mfe
+pnpm exec nx serve life-events-mfe
 ```
 
 Open `http://localhost:4202`. This app has no BFF of its own. Running
@@ -47,9 +47,9 @@ work end to end.
 ## Test, lint, build
 
 ```bash
-pnpm exec nx test employment-life-events-mfe
-pnpm exec nx lint employment-life-events-mfe
-pnpm exec nx build employment-life-events-mfe --configuration=production
+pnpm exec nx test life-events-mfe
+pnpm exec nx lint life-events-mfe
+pnpm exec nx build life-events-mfe --configuration=production
 ```
 
 Or across this repo's projects at once: `pnpm run test` / `pnpm run lint` /
@@ -59,8 +59,8 @@ Or across this repo's projects at once: `pnpm run test` / `pnpm run lint` /
 
 ```bash
 docker build --secret id=npm_token,src=<(printf '%s' "$NODE_AUTH_TOKEN") \
-  -t mfe-pot-employment-life-events-mfe:local -f apps/employment-life-events-mfe/Dockerfile .
-docker run -p 8080:80 mfe-pot-employment-life-events-mfe:local
+  -t mfe-pot-life-events-mfe:local -f apps/life-events-mfe/Dockerfile .
+docker run -p 8080:80 mfe-pot-life-events-mfe:local
 ```
 
 ## Deploy this app's Helm chart locally (kind)
@@ -71,16 +71,16 @@ pnpm deploy:local
 
 Runs `tools/deploy-local.sh`: builds the image, creates/reuses a local
 `kind` cluster (shared with the other app repos, named `kind`), and
-`helm upgrade --install`s `charts/employment-life-events-mfe`. Requires
+`helm upgrade --install`s `charts/life-events-mfe`. Requires
 `../mfe-pot-platform` checked out as a sibling (this chart's library-chart
 dependency resolves via a `file://../../../mfe-pot-platform/charts/...`
 relative path). Add to `/etc/hosts`:
 
 ```
-127.0.0.1 employment-life-events-mfe.mfe-pot.local
+127.0.0.1 life-events-mfe.mfe-pot.local
 ```
 
-Then `curl -H "Host: employment-life-events-mfe.mfe-pot.local" http://localhost/`
+Then `curl -H "Host: life-events-mfe.mfe-pot.local" http://localhost/`
 or browse there directly.
 
 ## Where to go next

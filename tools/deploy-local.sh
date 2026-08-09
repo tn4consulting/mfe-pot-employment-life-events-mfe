@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Builds employment-life-events-mfe's image, spins up (or reuses) a local kind
+# Builds life-events-mfe's image, spins up (or reuses) a local kind
 # cluster with ingress-nginx, and helm-upgrades this app's chart onto it --
 # the local equivalent of the kind-validation stage in
 # .github/workflows/ci.yml.
@@ -9,7 +9,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
 CLUSTER_NAME="${CLUSTER_NAME:-kind}"
 PLATFORM_DIR=../mfe-pot-platform
-HOSTNAME=employment-life-events-mfe.mfe-pot.local
+HOSTNAME=life-events-mfe.mfe-pot.local
 
 if [ ! -d "$PLATFORM_DIR" ]; then
   echo "error: expected mfe-pot-platform checked out as a sibling at $PLATFORM_DIR (see ../mfe-pot.code-workspace)" >&2
@@ -42,22 +42,22 @@ fi
 
 export DOCKER_BUILDKIT=1
 
-echo "==> Building employment-life-events-mfe image..."
+echo "==> Building life-events-mfe image..."
 docker build \
   --secret id=npm_token,src="$token_file" \
-  -t mfe-pot-employment-life-events-mfe:kind \
-  -f apps/employment-life-events-mfe/Dockerfile .
+  -t mfe-pot-life-events-mfe:kind \
+  -f apps/life-events-mfe/Dockerfile .
 
 echo "==> Loading image into kind..."
-kind load docker-image mfe-pot-employment-life-events-mfe:kind --name "$CLUSTER_NAME"
+kind load docker-image mfe-pot-life-events-mfe:kind --name "$CLUSTER_NAME"
 
 echo "==> Updating Helm chart dependencies..."
-helm dependency update charts/employment-life-events-mfe
+helm dependency update charts/life-events-mfe
 
-echo "==> Deploying employment-life-events-mfe..."
-helm --kube-context "kind-$CLUSTER_NAME" upgrade --install employment-life-events-mfe charts/employment-life-events-mfe \
-  -f charts/employment-life-events-mfe/values.yaml \
-  -f charts/employment-life-events-mfe/values-kind.yaml \
+echo "==> Deploying life-events-mfe..."
+helm --kube-context "kind-$CLUSTER_NAME" upgrade --install life-events-mfe charts/life-events-mfe \
+  -f charts/life-events-mfe/values.yaml \
+  -f charts/life-events-mfe/values-kind.yaml \
   --wait --timeout 120s
 
 # values-kind.yaml pins a static image tag with pullPolicy: Never, so a
@@ -67,8 +67,8 @@ helm --kube-context "kind-$CLUSTER_NAME" upgrade --install employment-life-event
 # content indefinitely (confirmed the hard way: a redeploy silently kept
 # serving a pre-fix JS bundle). Force it explicitly every run.
 echo "==> Restarting deployment to pick up the freshly built image..."
-kubectl --context "kind-$CLUSTER_NAME" rollout restart deployment/employment-life-events-mfe
-kubectl --context "kind-$CLUSTER_NAME" rollout status deployment/employment-life-events-mfe --timeout=60s
+kubectl --context "kind-$CLUSTER_NAME" rollout restart deployment/life-events-mfe
+kubectl --context "kind-$CLUSTER_NAME" rollout status deployment/life-events-mfe --timeout=60s
 
 echo "==> Waiting for ingress..."
 status=000
@@ -78,9 +78,9 @@ for i in $(seq 1 30); do
   sleep 2
 done
 if [ "$status" != "200" ]; then
-  echo "warning: employment-life-events-mfe isn't answering with 200 yet (last status: $status). Check with:" >&2
+  echo "warning: life-events-mfe isn't answering with 200 yet (last status: $status). Check with:" >&2
   echo "  kubectl --context kind-$CLUSTER_NAME get pods,ingress" >&2
   exit 1
 fi
 
-echo "==> employment-life-events-mfe is up: curl -H \"Host: $HOSTNAME\" http://localhost/"
+echo "==> life-events-mfe is up: curl -H \"Host: $HOSTNAME\" http://localhost/"

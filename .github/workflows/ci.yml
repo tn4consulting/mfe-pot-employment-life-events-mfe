@@ -63,7 +63,7 @@ jobs:
   # ephemeral kind cluster, and confirm it actually serves -- the
   # kind-based validation stage from CLAUDE.md's Hosting section, now
   # automated instead of the one-off manual run it started as.
-  # employment-life-events-mfe has no co-located BFF, so this job only
+  # life-events-mfe has no co-located BFF, so this job only
   # builds/loads/checks one image, unlike 3 of the other extracted app
   # repos.
   kind-validation:
@@ -73,9 +73,9 @@ jobs:
       - name: Checkout this repo
         uses: actions/checkout@v4
         with:
-          path: mfe-pot-employment-life-events-mfe
+          path: mfe-pot-life-events-mfe
 
-      # charts/employment-life-events-mfe/Chart.yaml's library-chart
+      # charts/life-events-mfe/Chart.yaml's library-chart
       # dependency resolves via a sibling-checkout-relative file:// path
       # (see CLAUDE.md) -- checked out alongside this repo so the same
       # relative layout local dev uses (both under one parent directory)
@@ -89,12 +89,12 @@ jobs:
 
       - uses: docker/setup-buildx-action@v3
 
-      - name: Build employment-life-events-mfe image
+      - name: Build life-events-mfe image
         uses: docker/build-push-action@v6
         with:
-          context: mfe-pot-employment-life-events-mfe
-          file: mfe-pot-employment-life-events-mfe/apps/employment-life-events-mfe/Dockerfile
-          tags: mfe-pot-employment-life-events-mfe:kind
+          context: mfe-pot-life-events-mfe
+          file: mfe-pot-life-events-mfe/apps/life-events-mfe/Dockerfile
+          tags: mfe-pot-life-events-mfe:kind
           load: true
           secrets: |
             npm_token=${{ secrets.NPM_READ_TOKEN }}
@@ -121,18 +121,18 @@ jobs:
             --timeout=120s
 
       - name: Load image into kind
-        run: kind load docker-image mfe-pot-employment-life-events-mfe:kind
+        run: kind load docker-image mfe-pot-life-events-mfe:kind
 
       - uses: azure/setup-helm@v4
 
       - name: helm dependency update
-        run: helm dependency update mfe-pot-employment-life-events-mfe/charts/employment-life-events-mfe
+        run: helm dependency update mfe-pot-life-events-mfe/charts/life-events-mfe
 
-      - name: helm install employment-life-events-mfe
+      - name: helm install life-events-mfe
         run: |
-          helm install employment-life-events-mfe mfe-pot-employment-life-events-mfe/charts/employment-life-events-mfe \
-            -f mfe-pot-employment-life-events-mfe/charts/employment-life-events-mfe/values.yaml \
-            -f mfe-pot-employment-life-events-mfe/charts/employment-life-events-mfe/values-kind.yaml \
+          helm install life-events-mfe mfe-pot-life-events-mfe/charts/life-events-mfe \
+            -f mfe-pot-life-events-mfe/charts/life-events-mfe/values.yaml \
+            -f mfe-pot-life-events-mfe/charts/life-events-mfe/values-kind.yaml \
             --wait --timeout 120s
 
       # This app got the runtime-config migration too (see CLAUDE.md --
@@ -146,12 +146,12 @@ jobs:
           # ingress-nginx's own reconciliation loop to pick up the new
           # Ingress resource -- give it a few seconds before asserting.
           for i in $(seq 1 30); do
-            status=$(curl -s -o /dev/null -w '%{http_code}' -H "Host: employment-life-events-mfe.mfe-pot.local" http://localhost/ || echo 000)
+            status=$(curl -s -o /dev/null -w '%{http_code}' -H "Host: life-events-mfe.mfe-pot.local" http://localhost/ || echo 000)
             [ "$status" = "200" ] && break
             sleep 2
           done
-          curl -sf -H "Host: employment-life-events-mfe.mfe-pot.local" http://localhost/ | grep -qi '<script src="env.js">'
-          curl -sf -H "Host: employment-life-events-mfe.mfe-pot.local" http://localhost/env.js
+          curl -sf -H "Host: life-events-mfe.mfe-pot.local" http://localhost/ | grep -qi '<script src="env.js">'
+          curl -sf -H "Host: life-events-mfe.mfe-pot.local" http://localhost/env.js
 
   # Stage 2: build+push the real image to ECR and deploy to the real AWS EKS
   # cluster, on push to main only. See
@@ -172,7 +172,7 @@ jobs:
       - name: Checkout this repo
         uses: actions/checkout@v4
         with:
-          path: mfe-pot-employment-life-events-mfe
+          path: mfe-pot-life-events-mfe
 
       - name: Checkout mfe-pot-platform (sibling - Helm library chart)
         uses: actions/checkout@v4
@@ -201,14 +201,14 @@ jobs:
         id: ecr-login
         uses: aws-actions/amazon-ecr-login@v2
 
-      - name: Build and push employment-life-events-mfe image
+      - name: Build and push life-events-mfe image
         if: steps.check.outputs.cluster_up == 'true'
         uses: docker/build-push-action@v6
         with:
-          context: mfe-pot-employment-life-events-mfe
-          file: mfe-pot-employment-life-events-mfe/apps/employment-life-events-mfe/Dockerfile
+          context: mfe-pot-life-events-mfe
+          file: mfe-pot-life-events-mfe/apps/life-events-mfe/Dockerfile
           push: true
-          tags: ${{ steps.ecr-login.outputs.registry }}/mfe-pot-employment-life-events-mfe:${{ github.sha }}
+          tags: ${{ steps.ecr-login.outputs.registry }}/mfe-pot-life-events-mfe:${{ github.sha }}
           secrets: |
             npm_token=${{ secrets.NPM_READ_TOKEN }}
 
@@ -221,14 +221,14 @@ jobs:
 
       - name: helm dependency update
         if: steps.check.outputs.cluster_up == 'true'
-        run: helm dependency update mfe-pot-employment-life-events-mfe/charts/employment-life-events-mfe
+        run: helm dependency update mfe-pot-life-events-mfe/charts/life-events-mfe
 
       - name: helm upgrade --install against EKS
         if: steps.check.outputs.cluster_up == 'true'
         run: |
-          helm upgrade --install employment-life-events-mfe mfe-pot-employment-life-events-mfe/charts/employment-life-events-mfe \
-            -f mfe-pot-employment-life-events-mfe/charts/employment-life-events-mfe/values.yaml \
-            -f mfe-pot-employment-life-events-mfe/charts/employment-life-events-mfe/values-eks.yaml \
+          helm upgrade --install life-events-mfe mfe-pot-life-events-mfe/charts/life-events-mfe \
+            -f mfe-pot-life-events-mfe/charts/life-events-mfe/values.yaml \
+            -f mfe-pot-life-events-mfe/charts/life-events-mfe/values-eks.yaml \
             --set frontend.image.tag=${{ github.sha }} \
             --wait --timeout 180s
 
@@ -237,8 +237,8 @@ jobs:
         run: |
           set -eu
           for i in $(seq 1 60); do
-            status=$(curl -sk -o /dev/null -w '%{http_code}' https://employment-life-events-mfe.aws.tn4consulting.com/ || echo 000)
+            status=$(curl -sk -o /dev/null -w '%{http_code}' https://life-events-mfe.aws.tn4consulting.com/ || echo 000)
             [ "$status" = "200" ] && break
             sleep 5
           done
-          curl -skf https://employment-life-events-mfe.aws.tn4consulting.com/ | grep -qi '<script src="env.js">'
+          curl -skf https://life-events-mfe.aws.tn4consulting.com/ | grep -qi '<script src="env.js">'
