@@ -19,8 +19,8 @@ importers:
         specifier: ^4.5.2
         version: 4.5.3
       '@tn4consulting/shared-auth':
-        specifier: ^0.3.0
-        version: 0.3.0(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2))(@angular/router@22.1.0(@angular/common@22.1.0(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2))(@angular/platform-browser@22.1.0(@angular/common@22.1.0(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2)))(rxjs@7.8.2))
+        specifier: ^0.5.0
+        version: 0.5.0
       '@tn4consulting/shared-content-client':
         specifier: ^0.1.1
         version: 0.1.1
@@ -28,8 +28,8 @@ importers:
         specifier: ^0.7.0
         version: 0.7.0(@softarc/native-federation@4.3.2(typescript@6.0.3))
       '@tn4consulting/shared-federation-runtime':
-        specifier: ^1.0.2
-        version: 1.0.2(react@19.2.8)
+        specifier: ^2.0.0
+        version: 2.0.0(react@19.2.8)
       '@tn4consulting/shared-i18n':
         specifier: ^1.1.0
         version: 1.1.0(react@19.2.8)
@@ -168,50 +168,6 @@ packages:
 
   '@adobe/css-tools@4.5.0':
     resolution: {integrity: sha512-6OzddxPio9UiWTCemp4N8cYLV2ZN1ncRnV1cVGtve7dhPOtRkleRyx32GQCYSwDYgaHU3USMm84tNsvKzRCa1Q==}
-
-  '@angular/common@22.1.0':
-    resolution: {integrity: sha512-67L8AS00egxwEKnoMhNDxy+TY+eKOwvwa+os0Odq8nLm7+Qh7JnMVeub8hfncpenOFqlC/RUjO2W9H7Gd2veNA==}
-    engines: {node: ^22.22.3 || ^24.15.0 || >=26.0.0}
-    peerDependencies:
-      '@angular/core': 22.1.0
-      rxjs: ^6.5.3 || ^7.4.0
-
-  '@angular/compiler@22.1.0':
-    resolution: {integrity: sha512-WCmuPnuXgqnqrkbrwqQRyldi1k3rlzNLVDl8ntINF7XWuJh0KfQLEkRK0FCCmBztWJkbGug4RBVnKTWlKhRzCQ==}
-    engines: {node: ^22.22.3 || ^24.15.0 || >=26.0.0}
-
-  '@angular/core@22.1.0':
-    resolution: {integrity: sha512-X5UaMuOCI4HAvSQIs3QtM+5e0Cni16DRaHUIL3BIBd4ZQNnSH3pZ25TsKQ8Jlu/3hAQ9rzV278kNQcecooGJ7g==}
-    engines: {node: ^22.22.3 || ^24.15.0 || >=26.0.0}
-    peerDependencies:
-      '@angular/compiler': 22.1.0
-      rxjs: ^6.5.3 || ^7.4.0
-      zone.js: ~0.15.0 || ~0.16.0
-    peerDependenciesMeta:
-      '@angular/compiler':
-        optional: true
-      zone.js:
-        optional: true
-
-  '@angular/platform-browser@22.1.0':
-    resolution: {integrity: sha512-gqUYDUiPfwbaLYdH8WLnOLl3feo3OcNpnMO08HBHaUdi4TLNkC28xwa9fC6ANyYD22QZ5A3abSg8fmR6upWMwg==}
-    engines: {node: ^22.22.3 || ^24.15.0 || >=26.0.0}
-    peerDependencies:
-      '@angular/animations': 22.1.0
-      '@angular/common': 22.1.0
-      '@angular/core': 22.1.0
-    peerDependenciesMeta:
-      '@angular/animations':
-        optional: true
-
-  '@angular/router@22.1.0':
-    resolution: {integrity: sha512-42Bs0g+tV2gE70Lqnt+VD/+DWbvWwQcg8QgXkTIu3A504tYknrZG/wmvki2AJGyZhmyQ46B4pfXLG4WDP8MFSA==}
-    engines: {node: ^22.22.3 || ^24.15.0 || >=26.0.0}
-    peerDependencies:
-      '@angular/common': 22.1.0
-      '@angular/core': 22.1.0
-      '@angular/platform-browser': 22.1.0
-      rxjs: ^6.5.3 || ^7.4.0
 
   '@asamuzakjp/css-color@3.2.0':
     resolution: {integrity: sha512-K1A6z8tS3XsmCMM86xoWdn7Fkdn9m6RSVtocUrJYIwZnFVkng/PvkEoWtOWmP+Scc6saYWHWZYbndEEXxl24jw==}
@@ -2168,11 +2124,8 @@ packages:
     peerDependencies:
       '@testing-library/dom': '>=7.21.4'
 
-  '@tn4consulting/shared-auth@0.3.0':
-    resolution: {integrity: sha512-RwKCJ1F8w/EzT4oksZInx7ekUjBeERWqL0XdFTXS42nERTQsNsQ8q0LyQZt6SiOz6Z6MG7/odCRZX+fxp+mjGA==, tarball: https://npm.pkg.github.com/download/@tn4consulting/shared-auth/0.3.0/fe6791ee74ba00c43ffd46bee8290c6ed9fccfae}
-    peerDependencies:
-      '@angular/core': '>=22.0.0'
-      '@angular/router': '>=22.0.0'
+  '@tn4consulting/shared-auth@0.5.0':
+    resolution: {integrity: sha512-OiVr4DcppytWIsOwJr7ekg8iQ5ERacuW7c3XDXMbyGivKx3Q6wOKbdbSyv2YMo4psL4cigW4rN3Dwz1PDpA/Gw==, tarball: https://npm.pkg.github.com/download/@tn4consulting/shared-auth/0.5.0/07a2fd3525627ce19867c427a057d105f7ad281f}
 
   '@tn4consulting/shared-content-client@0.1.1':
     resolution: {integrity: sha512-zsBRzk64/jy79nVTYAme1olbonZ3LsTAeX/zeO1V54R9ctiI0WilfP6HzTr4QGxZHxQZ3mP5NIQF1xG/dDADJQ==, tarball: https://npm.pkg.github.com/download/@tn4consulting/shared-content-client/0.1.1/e771794d4c182e173d3aa4ef40e7aeffc39df3d7}
@@ -2182,8 +2135,8 @@ packages:
     peerDependencies:
       '@softarc/native-federation': '>=4.0.0'
 
-  '@tn4consulting/shared-federation-runtime@1.0.2':
-    resolution: {integrity: sha512-CvupDBqGDkVD4NirwXa9vBwnMe/6J6UOJ4gV9r+8xamDVVANDmONh2KgCxA0yibTC0FKnUz445VoSbySmiDsiQ==, tarball: https://npm.pkg.github.com/download/@tn4consulting/shared-federation-runtime/1.0.2/d1b7050eb14e1608f2e4d88ed646b5971777a5b3}
+  '@tn4consulting/shared-federation-runtime@2.0.0':
+    resolution: {integrity: sha512-2Y5EjRo7TchK+MinTcoKeeDcERgjZgI+kT9k3DIc0LhpaeTukl1/OYRJkKv1xxyev4qZbJ95xePQKzt+FabSjg==, tarball: https://npm.pkg.github.com/download/@tn4consulting/shared-federation-runtime/2.0.0/2b7cea9779a2484e5661e3b66ee55d734109d3ae}
     peerDependencies:
       react: '>=19.0.0'
 
@@ -6009,38 +5962,6 @@ snapshots:
 
   '@adobe/css-tools@4.5.0': {}
 
-  '@angular/common@22.1.0(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2))(rxjs@7.8.2)':
-    dependencies:
-      '@angular/core': 22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2)
-      rxjs: 7.8.2
-      tslib: 2.8.1
-
-  '@angular/compiler@22.1.0':
-    dependencies:
-      tslib: 2.8.1
-    optional: true
-
-  '@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2)':
-    dependencies:
-      rxjs: 7.8.2
-      tslib: 2.8.1
-    optionalDependencies:
-      '@angular/compiler': 22.1.0
-
-  '@angular/platform-browser@22.1.0(@angular/common@22.1.0(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2))':
-    dependencies:
-      '@angular/common': 22.1.0(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2))(rxjs@7.8.2)
-      '@angular/core': 22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2)
-      tslib: 2.8.1
-
-  '@angular/router@22.1.0(@angular/common@22.1.0(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2))(@angular/platform-browser@22.1.0(@angular/common@22.1.0(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2)))(rxjs@7.8.2)':
-    dependencies:
-      '@angular/common': 22.1.0(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2))(rxjs@7.8.2)
-      '@angular/core': 22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2)
-      '@angular/platform-browser': 22.1.0(@angular/common@22.1.0(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2))
-      rxjs: 7.8.2
-      tslib: 2.8.1
-
   '@asamuzakjp/css-color@3.2.0':
     dependencies:
       '@csstools/css-calc': 2.1.4(@csstools/css-parser-algorithms@3.0.5(@csstools/css-tokenizer@3.0.4))(@csstools/css-tokenizer@3.0.4)
@@ -8295,10 +8216,7 @@ snapshots:
     dependencies:
       '@testing-library/dom': 10.4.1
 
-  '@tn4consulting/shared-auth@0.3.0(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2))(@angular/router@22.1.0(@angular/common@22.1.0(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2))(@angular/platform-browser@22.1.0(@angular/common@22.1.0(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2)))(rxjs@7.8.2))':
-    dependencies:
-      '@angular/core': 22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2)
-      '@angular/router': 22.1.0(@angular/common@22.1.0(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2))(@angular/platform-browser@22.1.0(@angular/common@22.1.0(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2))(rxjs@7.8.2))(@angular/core@22.1.0(@angular/compiler@22.1.0)(rxjs@7.8.2)))(rxjs@7.8.2)
+  '@tn4consulting/shared-auth@0.5.0': {}
 
   '@tn4consulting/shared-content-client@0.1.1': {}
 
@@ -8306,7 +8224,7 @@ snapshots:
     dependencies:
       '@softarc/native-federation': 4.3.2(typescript@6.0.3)
 
-  '@tn4consulting/shared-federation-runtime@1.0.2(react@19.2.8)':
+  '@tn4consulting/shared-federation-runtime@2.0.0(react@19.2.8)':
     dependencies:
       react: 19.2.8
 
@@ -12149,6 +12067,7 @@ snapshots:
   rxjs@7.8.2:
     dependencies:
       tslib: 2.8.1
+    optional: true
 
   safe-array-concat@1.1.4:
     dependencies:
