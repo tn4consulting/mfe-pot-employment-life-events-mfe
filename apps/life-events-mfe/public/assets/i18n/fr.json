@@ -19,6 +19,104 @@
       "title": "Soumettez votre relevé d'assurance-emploi toutes les deux semaines",
       "body": "Une fois votre demande active, remplissez votre relevé toutes les deux semaines — même si vous n'avez aucun revenu à déclarer — sinon vos versements cesseront.",
       "action": "Soumettre votre relevé"
+    },
+    "jobLoss": {
+      "departure": {
+        "heading": "Étapes à suivre en quittant votre emploi",
+        "roe": {
+          "title": "Obtenez votre relevé d’emploi (RE)",
+          "body": "Demandez votre RE à votre employeur — vous en aurez besoin pour présenter une demande d’assurance-emploi. Les employeurs doivent le délivrer dans les 5 jours suivant votre dernier jour travaillé."
+        },
+        "finalPay": {
+          "title": "Confirmez votre dernière paie et votre indemnité de vacances",
+          "body": "Vérifiez que votre dernière paie comprend tous les salaires dus et toute indemnité de vacances non utilisée, selon les normes d’emploi de votre province ou territoire."
+        },
+        "benefitsContinuation": {
+          "title": "Renseignez-vous sur le maintien de vos avantages sociaux",
+          "body": "Renseignez-vous pour savoir si vous pouvez convertir votre assurance maladie, dentaire ou vie en police individuelle, et combien de temps dure votre couverture actuelle."
+        },
+        "returnProperty": {
+          "title": "Retournez les biens de l’entreprise",
+          "body": "Retournez tout ordinateur portable, carte d’identité, clé ou uniforme, et obtenez une confirmation écrite de leur réception."
+        },
+        "reference": {
+          "title": "Demandez une lettre de référence",
+          "body": "Demandez une lettre de référence ou une confirmation d’emploi pendant que votre superviseur se souvient bien de votre travail — vous en aurez probablement besoin pour vos demandes d’emploi."
+        },
+        "keepRecords": {
+          "title": "Conservez vos documents pour votre demande d’assurance-emploi",
+          "body": "Conservez votre RE, vos talons de paie et vos dates d’emploi à portée de main — vous en aurez besoin pour présenter une demande d’assurance-emploi."
+        }
+      },
+      "employability": {
+        "heading": "Améliorez votre employabilité",
+        "updateCv": {
+          "title": "Mettez à jour votre CV et votre profil LinkedIn",
+          "body": "Ajoutez votre poste le plus récent, vos réalisations et vos compétences."
+        },
+        "training": {
+          "title": "Renseignez-vous sur la formation et le perfectionnement",
+          "body": "Cherchez des programmes de formation ou des certifications financés par le gouvernement qui pourraient améliorer vos perspectives d’emploi."
+        }
+      },
+      "benefits": {
+        "heading": "Prestations auxquelles vous pourriez maintenant être admissible",
+        "taxCredits": {
+          "title": "Crédit pour la TPS/TVH et autres prestations fondées sur le revenu",
+          "body": "Un revenu plus faible cette année pourrait modifier ce que vous recevez du crédit pour la TPS/TVH ou d’autres prestations fondées sur le revenu lors de votre prochaine déclaration de revenus."
+        },
+        "provincial": {
+          "title": "Soutiens provinciaux ou territoriaux",
+          "body": "Vérifiez si votre province ou territoire offre un soutien supplémentaire au revenu ou à la couverture santé pendant une période de chômage."
+        }
+      }
+    },
+    "birth": {
+      "firstSteps": {
+        "heading": "Étapes à suivre après la naissance de votre enfant",
+        "registerBirth": {
+          "title": "Déclarez la naissance",
+          "body": "Déclarez la naissance de votre enfant auprès de votre province ou territoire — la plupart vous permettent aussi de présenter une demande de certificat de naissance et d’allocation canadienne pour enfants en même temps."
+        },
+        "sinApplication": {
+          "title": "Demandez le numéro d’assurance sociale de votre enfant",
+          "body": "Plusieurs provinces permettent de faire la demande de NAS dans le cadre de la déclaration de naissance; sinon, faites-en la demande séparément une fois le certificat de naissance obtenu."
+        },
+        "eiMaternityParental": {
+          "title": "Présentez une demande de prestations de maternité et parentales d’assurance-emploi",
+          "body": "Présentez votre demande dès que vous cessez de travailler — vous pouvez demander les prestations de maternité avant la naissance et les prestations parentales après.",
+          "linkLabel": "Présenter une demande d’assurance-emploi"
+        }
+      }
+    },
+    "serviceLinks": {
+      "heading": "Autres services qui pourraient vous aider",
+      "jobLoss": {
+        "cdcp": {
+          "title": "Régime canadien de soins dentaires (RCSD)",
+          "description": "La perte de votre couverture dentaire liée à l’emploi pourrait vous rendre nouvellement admissible au RCSD — consultez votre tableau de bord pour un aperçu personnalisé de vos prestations."
+        }
+      },
+      "birth": {
+        "canadaChildBenefit": {
+          "title": "Allocation canadienne pour enfants (ACE)",
+          "description": "Un paiement mensuel non imposable pour aider à assumer les coûts liés à l’éducation d’enfants de moins de 18 ans."
+        },
+        "provincialFamilySupports": {
+          "title": "Soutiens familiaux provinciaux ou territoriaux",
+          "description": "Vérifiez si votre province ou territoire offre des suppléments de congé parental ou des prestations familiales additionnelles."
+        }
+      },
+      "disability": {
+        "cdcp": {
+          "title": "Régime canadien de soins dentaires (RCSD)",
+          "description": "Vous pourriez être admissible au RCSD — consultez votre tableau de bord pour un aperçu personnalisé de vos prestations."
+        },
+        "disabilityTaxCredit": {
+          "title": "Crédit d’impôt pour personnes handicapées (CIPH)",
+          "description": "Un crédit d’impôt non remboursable qui réduit l’impôt sur le revenu que vous pourriez avoir à payer."
+        }
+      }
     }
   },
   "auth": {

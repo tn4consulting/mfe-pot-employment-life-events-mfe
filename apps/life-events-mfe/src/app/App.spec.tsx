@@ -29,6 +29,29 @@ describe('App', () => {
             jobSearch: { title: 'Search and apply for jobs on Job Bank', body: 'Browse job postings.', action: 'Search Job Bank' },
             eiApply: { title: 'Apply for Employment Insurance', body: 'Apply as soon as you stop working.', action: 'Apply for EI' },
             eiReport: { title: 'Submit your EI report', body: 'Report every two weeks.', action: 'Submit your report' },
+            birth: {
+              firstSteps: {
+                heading: 'Steps to take after your baby is born',
+                registerBirth: { title: 'Register the birth', body: 'Register your baby.' },
+                sinApplication: { title: 'Apply for a SIN', body: 'Apply for a SIN.' },
+                eiMaternityParental: {
+                  title: 'Apply for EI maternity and parental benefits',
+                  body: 'Apply as soon as you stop working.',
+                  linkLabel: 'Apply for EI',
+                },
+              },
+            },
+            serviceLinks: {
+              heading: 'Other services that may help',
+              birth: {
+                canadaChildBenefit: { title: 'Canada Child Benefit (CCB)', description: 'A tax-free monthly payment.' },
+                provincialFamilySupports: { title: 'Provincial or territorial family supports', description: 'Check your province.' },
+              },
+              disability: {
+                cdcp: { title: 'Canadian Dental Care Plan (CDCP)', description: 'You may be eligible for the CDCP.' },
+                disabilityTaxCredit: { title: 'Disability Tax Credit (DTC)', description: 'A non-refundable tax credit.' },
+              },
+            },
           },
           auth: { signInRequired: 'You need to sign in to view your guided journey.' },
         }),

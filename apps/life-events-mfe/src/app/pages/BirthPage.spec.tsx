@@ -6,7 +6,28 @@ jest.mock('../asset-base-url', () => ({ assetBaseUrl: 'http://localhost:4202/' }
 
 beforeEach(() => {
   global.fetch = jest.fn().mockResolvedValue({
-    json: () => Promise.resolve({ journey: { markDone: 'Mark as done', completed: 'Completed' } }),
+    json: () =>
+      Promise.resolve({
+        journey: {
+          markDone: 'Mark as done',
+          completed: 'Completed',
+          birth: {
+            firstSteps: {
+              heading: 'Steps to take after your baby is born',
+              registerBirth: { title: 'Register the birth', body: 'Register your baby.' },
+              sinApplication: { title: 'Apply for a SIN', body: 'Apply for a SIN.' },
+              eiMaternityParental: { title: 'Apply for EI maternity and parental benefits', body: 'Apply as soon as you stop working.', linkLabel: 'Apply for EI' },
+            },
+          },
+          serviceLinks: {
+            heading: 'Other services that may help',
+            birth: {
+              canadaChildBenefit: { title: 'Canada Child Benefit (CCB)', description: 'A tax-free monthly payment.' },
+              provincialFamilySupports: { title: 'Provincial or territorial family supports', description: 'Check your province.' },
+            },
+          },
+        },
+      }),
   }) as jest.Mock;
 });
 

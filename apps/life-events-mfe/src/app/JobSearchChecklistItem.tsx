@@ -31,9 +31,8 @@ interface LoadedJobApplication {
  * action label.
  *
  * Self-serves locale/translations (no props) -- `pages/JobLossPage.tsx`
- * passes this as `ChecklistSection`'s `leadingItem`, slotted directly into
- * a `scds-checklist`'s default slot alongside its mapped static items, so
- * it needs no wrapper of its own either.
+ * renders this as an ordinary JSX child of `ChecklistSection`, alongside
+ * its `ChecklistItem` siblings, so it needs no wrapper of its own either.
  */
 export function JobSearchChecklistItem() {
   const locale = useLocale();

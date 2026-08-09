@@ -19,6 +19,104 @@
       "title": "Submit your EI report every two weeks",
       "body": "Once your claim is active, complete your EI report every two weeks — even if you have no income to report — or your payments will stop.",
       "action": "Submit your report"
+    },
+    "jobLoss": {
+      "departure": {
+        "heading": "Steps to take when you leave your job",
+        "roe": {
+          "title": "Get your Record of Employment (ROE)",
+          "body": "Ask your employer for your ROE — you'll need it to apply for Employment Insurance. Employers must issue it within 5 days of your last day worked."
+        },
+        "finalPay": {
+          "title": "Confirm your final pay and vacation pay",
+          "body": "Check that your final pay includes all wages owed and any unused vacation pay, per your province or territory’s employment standards."
+        },
+        "benefitsContinuation": {
+          "title": "Ask about continuing your workplace benefits",
+          "body": "Find out whether you can convert your health, dental, or life insurance to an individual policy, and for how long your current coverage lasts."
+        },
+        "returnProperty": {
+          "title": "Return company property",
+          "body": "Return any laptop, ID badge, keys, or uniforms, and get written confirmation that they were received."
+        },
+        "reference": {
+          "title": "Ask for a letter of reference",
+          "body": "Request a reference letter or confirmation of employment while your manager's memory is fresh — you'll likely need it for job applications."
+        },
+        "keepRecords": {
+          "title": "Keep records for your EI application",
+          "body": "Keep your ROE, pay stubs, and dates of employment on hand — you'll need this information to apply for EI."
+        }
+      },
+      "employability": {
+        "heading": "Make yourself more employable",
+        "updateCv": {
+          "title": "Update your résumé and LinkedIn profile",
+          "body": "Add your most recent role, accomplishments, and skills."
+        },
+        "training": {
+          "title": "Look into training and upskilling",
+          "body": "Look for government-funded training programs or certifications that could improve your job prospects."
+        }
+      },
+      "benefits": {
+        "heading": "Benefits you might now be eligible for",
+        "taxCredits": {
+          "title": "GST/HST credit and other income-tested benefits",
+          "body": "A lower income this year could change what you receive from the GST/HST credit or other income-tested benefits when you file your next tax return."
+        },
+        "provincial": {
+          "title": "Provincial or territorial supports",
+          "body": "Check whether your province or territory offers additional income or health-coverage support during unemployment."
+        }
+      }
+    },
+    "birth": {
+      "firstSteps": {
+        "heading": "Steps to take after your baby is born",
+        "registerBirth": {
+          "title": "Register the birth",
+          "body": "Register your baby’s birth with your province or territory — most also let you apply for a birth certificate and the Canada Child Benefit at the same time."
+        },
+        "sinApplication": {
+          "title": "Apply for your baby’s Social Insurance Number",
+          "body": "Many provinces let you apply for a SIN as part of birth registration; otherwise apply separately once you have the birth certificate."
+        },
+        "eiMaternityParental": {
+          "title": "Apply for EI maternity and parental benefits",
+          "body": "Apply as soon as you stop working — you can apply for maternity benefits before the birth and parental benefits after.",
+          "linkLabel": "Apply for EI"
+        }
+      }
+    },
+    "serviceLinks": {
+      "heading": "Other services that may help",
+      "jobLoss": {
+        "cdcp": {
+          "title": "Canadian Dental Care Plan (CDCP)",
+          "description": "Losing job-related dental coverage may make you newly eligible for the CDCP — check your dashboard for a personalized look at your benefits."
+        }
+      },
+      "birth": {
+        "canadaChildBenefit": {
+          "title": "Canada Child Benefit (CCB)",
+          "description": "A tax-free monthly payment to help with the cost of raising children under 18."
+        },
+        "provincialFamilySupports": {
+          "title": "Provincial or territorial family supports",
+          "description": "Check whether your province or territory offers additional parental leave top-ups or family benefits."
+        }
+      },
+      "disability": {
+        "cdcp": {
+          "title": "Canadian Dental Care Plan (CDCP)",
+          "description": "You may be eligible for the CDCP — check your dashboard for a personalized look at your benefits."
+        },
+        "disabilityTaxCredit": {
+          "title": "Disability Tax Credit (DTC)",
+          "description": "A non-refundable tax credit that reduces the income tax you may have to pay."
+        }
+      }
     }
   },
   "auth": {

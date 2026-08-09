@@ -2,26 +2,27 @@ import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { ServiceLinksSection } from './ServiceLinksSection';
 
+jest.mock('../asset-base-url', () => ({ assetBaseUrl: 'http://localhost:4202/' }));
+
+beforeEach(() => {
+  global.fetch = jest.fn().mockResolvedValue({
+    json: () => Promise.resolve({ journey: { heading: 'Links heading' } }),
+  }) as jest.Mock;
+});
+
+afterEach(() => {
+  jest.restoreAllMocks();
+});
+
 describe('ServiceLinksSection', () => {
-  it('renders its heading and links as cards', () => {
-    const { container } = render(
-      <ServiceLinksSection
-        heading={{ en: 'Links heading', fr: 'Titre des liens' }}
-        links={[
-          {
-            id: 'link-1',
-            title: { en: 'Link title', fr: 'Titre du lien' },
-            description: { en: 'Link description', fr: 'Description du lien' },
-            href: '/somewhere',
-          },
-        ]}
-      />,
+  it('renders its translated heading and children', async () => {
+    render(
+      <ServiceLinksSection headingKey="journey.heading">
+        <p>child content</p>
+      </ServiceLinksSection>,
     );
 
-    expect(screen.getByRole('heading', { name: 'Links heading' })).toBeInTheDocument();
-    const card = container.querySelector('scds-card');
-    expect(card?.getAttribute('card-title')).toBe('Link title');
-    expect(card?.getAttribute('description')).toBe('Link description');
-    expect(card?.getAttribute('href')).toBe('/somewhere');
+    expect(await screen.findByRole('heading', { name: 'Links heading' })).toBeInTheDocument();
+    expect(screen.getByText('child content')).toBeInTheDocument();
   });
 });
