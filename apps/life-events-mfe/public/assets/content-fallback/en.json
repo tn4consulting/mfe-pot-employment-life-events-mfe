@@ -1,0 +1,14 @@
+{
+  "life-events.job-loss.intro": {
+    "title": "You lost your job — here's what to do next",
+    "body": "Guidance on CVs, job search, and Employment Insurance."
+  },
+  "life-events.birth.intro": {
+    "title": "You had a baby — here's what to do next",
+    "body": "Guidance on registering the birth, maternity/parental benefits, and family supports."
+  },
+  "life-events.disability.intro": {
+    "title": "You have a disability — here's what to do next",
+    "body": "Guidance on applying for disability benefits and finding accessibility supports."
+  }
+}

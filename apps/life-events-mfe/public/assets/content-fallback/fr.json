@@ -1,0 +1,14 @@
+{
+  "life-events.job-loss.intro": {
+    "title": "Vous avez perdu votre emploi — voici les prochaines étapes",
+    "body": "Conseils sur le CV, la recherche d'emploi et l'assurance-emploi."
+  },
+  "life-events.birth.intro": {
+    "title": "Vous avez eu un enfant — voici les prochaines étapes",
+    "body": "Conseils sur la déclaration de naissance, les prestations de maternité/parentales et les soutiens familiaux."
+  },
+  "life-events.disability.intro": {
+    "title": "Vous vivez avec un handicap — voici les prochaines étapes",
+    "body": "Conseils sur la demande de prestations d'invalidité et les soutiens en accessibilité."
+  }
+}

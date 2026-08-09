@@ -23,5 +23,8 @@
   },
   "auth": {
     "signInRequired": "Vous devez ouvrir une session pour consulter votre parcours guidé."
+  },
+  "errors": {
+    "contentUnavailable": "Le contenu de la page est temporairement indisponible."
   }
 }

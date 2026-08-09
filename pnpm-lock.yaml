@@ -22,8 +22,8 @@ importers:
         specifier: ^0.5.0
         version: 0.5.0
       '@tn4consulting/shared-content-client':
-        specifier: ^0.1.1
-        version: 0.1.1
+        specifier: ^0.3.0
+        version: 0.3.0
       '@tn4consulting/shared-federation-config':
         specifier: ^0.7.0
         version: 0.7.0(@softarc/native-federation@4.3.2(typescript@6.0.3))
@@ -2127,8 +2127,8 @@ packages:
   '@tn4consulting/shared-auth@0.5.0':
     resolution: {integrity: sha512-OiVr4DcppytWIsOwJr7ekg8iQ5ERacuW7c3XDXMbyGivKx3Q6wOKbdbSyv2YMo4psL4cigW4rN3Dwz1PDpA/Gw==, tarball: https://npm.pkg.github.com/download/@tn4consulting/shared-auth/0.5.0/07a2fd3525627ce19867c427a057d105f7ad281f}
 
-  '@tn4consulting/shared-content-client@0.1.1':
-    resolution: {integrity: sha512-zsBRzk64/jy79nVTYAme1olbonZ3LsTAeX/zeO1V54R9ctiI0WilfP6HzTr4QGxZHxQZ3mP5NIQF1xG/dDADJQ==, tarball: https://npm.pkg.github.com/download/@tn4consulting/shared-content-client/0.1.1/e771794d4c182e173d3aa4ef40e7aeffc39df3d7}
+  '@tn4consulting/shared-content-client@0.3.0':
+    resolution: {integrity: sha512-FqetYnnYnC/VSBocxHS2p9q7xLBv8O/P6TqK/3mT39HRwqGzaK2GRVgmAPDIOXYjK1EcHixIzD/FEupQh6ZuiA==, tarball: https://npm.pkg.github.com/download/@tn4consulting/shared-content-client/0.3.0/ce7fab8fb3b3c0337012c93ad09b8dea800ebe42}
 
   '@tn4consulting/shared-federation-config@0.7.0':
     resolution: {integrity: sha512-B9dpO/7aTI1DAG6n6JIT0enRnN2Ed5JW8Uenf0yJ33KsqBk110y00wQ0IwPdHmK4AtNCjXTxkjc5k0DC52odJQ==, tarball: https://npm.pkg.github.com/download/@tn4consulting/shared-federation-config/0.7.0/cc5f427dd6e229755d41b36e81783559e1b988a8}
@@ -8218,7 +8218,7 @@ snapshots:
 
   '@tn4consulting/shared-auth@0.5.0': {}
 
-  '@tn4consulting/shared-content-client@0.1.1': {}
+  '@tn4consulting/shared-content-client@0.3.0': {}
 
   '@tn4consulting/shared-federation-config@0.7.0(@softarc/native-federation@4.3.2(typescript@6.0.3))':
     dependencies:

@@ -23,5 +23,8 @@
   },
   "auth": {
     "signInRequired": "You need to sign in to view your guided journey."
+  },
+  "errors": {
+    "contentUnavailable": "Page content is temporarily unavailable."
   }
 }

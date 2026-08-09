@@ -57,7 +57,7 @@ export function App({ lifeEventId = 'job-loss' }: AppProps) {
     let cancelled = false;
     loadRuntimeConfig(assetBaseUrl).then((runtimeConfig) => {
       if (!cancelled) {
-        setContentClient(createContentClient(runtimeConfig.strapiBaseUrl));
+        setContentClient(createContentClient(runtimeConfig.strapiBaseUrl, assetBaseUrl));
       }
     });
     return () => {
@@ -108,7 +108,7 @@ export function App({ lifeEventId = 'job-loss' }: AppProps) {
           <p>{intro.body}</p>
         </section>
       ) : introLoadError ? (
-        <p role="alert">Page content is temporarily unavailable.</p>
+        <p role="alert">{t('errors.contentUnavailable')}</p>
       ) : null}
       <LifeEventPage definition={definition} />
     </>
