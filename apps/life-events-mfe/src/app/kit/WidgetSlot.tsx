@@ -53,6 +53,7 @@ export function WidgetSlot({ widgetId, heading }: WidgetSlotProps) {
     <section>
       {heading && <h2>{text(heading, locale)}</h2>}
       {widgetLoadError && <p role="alert">{t('journey.widgetUnavailable')}</p>}
+      {!Widget && !widgetLoadError && <scds-spinner label={t('journey.widgetLoading')} size="small" />}
       {Widget && <Widget />}
     </section>
   );

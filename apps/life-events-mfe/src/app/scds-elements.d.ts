@@ -39,6 +39,8 @@ declare global {
       };
       /** Added for disability's `kind: 'custom'` stepper (DisabilityApplicationStepper.tsx) -- the escape-hatch proof case. */
       'scds-progress-bar': ScdsElementProps & { current?: number; total?: number; 'step-label'?: string };
+      /** Added for WidgetSlot's loading state while a cross-remote widget is still loading. */
+      'scds-spinner': ScdsElementProps & { label?: string; size?: 'small' | 'regular' };
     }
   }
 }

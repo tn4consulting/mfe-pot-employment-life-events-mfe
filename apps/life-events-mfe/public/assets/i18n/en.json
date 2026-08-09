@@ -1,6 +1,7 @@
 {
   "journey": {
     "widgetUnavailable": "This widget is temporarily unavailable.",
+    "widgetLoading": "Loading...",
     "markDone": "Mark as done",
     "completed": "Completed",
     "status": "View status",
